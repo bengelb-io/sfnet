@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+/**
+
+JPMorganPrimary #0e3442 
+JPMorganLight #52d8e6
+JPMorganNeutral #21292e
+JPMorganDark #000000
+**/
+
+@theme static {
+  --font-sans: 'Public Sans', sans-serif;
+
+  --breakpoint-3xl: 1920px;
+
+  --color-green-50: #FFFDF5;
+  --color-green-100: #F9FBE8;
+  --color-green-200: #F3F5D1;
+  --color-green-300: #F5EDAE;
+  --color-green-400: #F0DC82;
+  --color-green-500: #F0C16A;
+  --color-green-600: #F0A155;
+  --color-green-700: #F07F45;
+  --color-green-800: #F16538;
+  --color-green-900: #FA5331;
+  --color-green-950: #F52E16;
+}
