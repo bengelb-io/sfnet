@@ -1,35 +1,11 @@
-
 <template>
-  <button
-    class="relative px-6 py-3 font-semibold text-white bg-gray-900 rounded-full overflow-hidden group"
-  >
-    <span class="relative z-10"><slot/></span>
-
-    <!-- Animated Gradient Border -->
-    <span
-      class="absolute inset-0 rounded-full p-2 bg-gradient-to-r from-pink-500 via-yellow-500 to-cyan-500 animate-gradient-border blur-sm"
-    />
-
-    <!-- Mask to keep background solid -->
-    <span class="absolute inset-0 bg-gray-900 rounded-lg" />
-  </button>
+  <div class="relative overflow-hidden flex items-center justify-center max-w-[400px] w-full mx-auto my-24 rounded-[8px] before:content-[''] before:block before:absolute before:h-[300px] before:w-[100px] before:bg-gradient-to-r before:from-transparent before:via-gray-600/75 before:to-transparent before:top-1/2 before:transform before:origin-top before:animate-rotate z-0">
+    <div class="relative z-10 w-full m-[2px] p-6 bg-[#222] text-white rounded-[8px]">
+      <h3 class="mb-4"><slot/></h3>
+    </div>
+  </div>
 </template>
 
 <style scoped>
-@keyframes gradient-border {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 
-.animate-gradient-border {
-  background-size: 300% 300%;
-  animation: gradient-border 3s linear infinite;
-}
 </style>

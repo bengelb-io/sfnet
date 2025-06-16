@@ -13,15 +13,24 @@ const { width } = useWindowSize();
             <NuxtImg class="size-16" src="sfnet.png" />
           </NuxtLink>
           <h1
-            class="text-6xl bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-5xl font-extrabold text-transparent pb-2 my-10"
+            class="text-6xl bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-5xl font-extrabold text-transparent pb-2 my-2"
           >
             BayAreaSecure.ai
           </h1>
         </div>
-        <h2 class="text-xl font-extrabold">Beyond Quantum: Secure Today, Safe Tomorrow</h2>
-        <CoolButton>
-            Join The Movement
-        </CoolButton>
+        <h2 class="text-xl font-extrabold">
+          Beyond Quantum: Secure Today, Safe Tomorrow
+        </h2>
+        <UButton
+          icon="i-lucide-rocket"
+          color="neutral"
+          variant="outline"
+          :ui="{
+            leadingIcon: 'text-primary cursor-hover',
+          }"
+        >
+          Join The Movement
+        </UButton>
       </div>
     </P5Canvas>
 
