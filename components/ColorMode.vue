@@ -20,7 +20,7 @@ const label = computed(() => {
 
 <template>
     <ClientOnly v-if="!colorMode?.forced">
-        <USwitch @change="isDark = !isDark" size="xl" color="neutral" :label="label" unchecked-icon="i-lucide-moon"
+        <USwitch @change="isDark = !isDark" size="xl" color="neutral"  unchecked-icon="i-lucide-moon"
             checked-icon="i-lucide-sun" />
         <template #fallback>
             <USwitch size="xl" color="neutral" label="Switch To Dark" unchecked-icon="i-lucide-moon"
