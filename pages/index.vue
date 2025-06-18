@@ -62,6 +62,24 @@ NIST has endorsed lattice-based schemes like CRYSTALS-Kyber and CRYSTALS-Dilithi
   ctaLabel: "Understand the Math",
   ctaText: "Dive into why lattice-based encryption matters.",
 };
+
+const agencyList = [
+  {
+    name: "U.S. Department of Defense",
+    logo: "logos/dod.png",
+    country: "United States",
+  },
+  { name: "NATO", logo: "logos/nato.png", country: "International" },
+  {
+    name: "Ministry of Defence",
+    logo: "logos/mod_uk.png",
+    country: "United Kingdom",
+  },
+  { name: "Bundeswehr", logo: "logos/bundeswehr.png", country: "Germany" },
+  { name: "DGSE", logo: "logos/dgse.png", country: "France" },
+  { name: "DND Canada", logo: "logos/dnd_canada.svg", country: "Canada" },
+  { name: "Australian DoD", logo: "logos/dod_aus.png", country: "Australia" },
+];
 </script>
 
 <template>
@@ -104,35 +122,42 @@ NIST has endorsed lattice-based schemes like CRYSTALS-Kyber and CRYSTALS-Dilithi
         </div>
       </P5Canvas>
       <USeparator />
-      <LayoutSection class="flex gap-4">
+      <LayoutSection class="flex sm:flex-row flex-col gap-4 p-2">
         <UCard
-          class="bg-slate-900 border border-slate-700 shadow-xl p-6 rounded-2xl animate-fade-in basis-1/2"
+          class=" bg-slate-900 border border-slate-700 shadow-xl p-6 rounded-2xl animate-fade-in basis-1/2"
         >
           <div class="space-y-4">
             <h2 class="text-2xl font-bold text-white">
-              🧮 Estimating Quantum Time to Crack
+              🔐 How Long Would Your Messages Last Against a Quantum Attack?
             </h2>
             <p class="text-slate-300">
-              As quantum computing inches closer to practicality, it's worth
-              asking: how long would it take an advanced quantum computer to
-              break encryption used by today's most popular messaging apps? From
-              Signal Protocol to Telegram's MTProto, each service relies on
-              cryptographic algorithms like AES, ECC, and RSA — all of which
-              face serious vulnerabilities in the face of Shor’s and Grover’s
-              algorithms.
+              Quantum computers aren't just a futuristic curiosity — they're an
+              existential threat to modern encryption. Once they reach scale,
+              algorithms like Shor’s could dismantle the cryptographic backbone
+              of our most trusted messaging platforms in mere minutes. This
+              infographic breaks down the TTC (Time to Crack) for popular
+              services like WhatsApp, Signal, iMessage, and Telegram, assuming a
+              quantum adversary with full capabilities. The numbers are
+              chilling: encryption that currently protects billions of
+              conversations could evaporate in the time it takes to make a cup
+              of coffee. Welcome to the countdown.
             </p>
-
+            <!-- <div class="flex justify-around">
+              <ContentPaperLink
+                link="https://cc.ee.ntu.edu.tw/~rbwu/rapid_content/course/QC/Shor1994.pdf"
+                title="Shor's Algorithm"
+              />
+              <ContentPaperLink />
+              <ContentPaperLink />
+            </div> -->
           </div>
         </UCard>
 
         <UCard variant="subtle" class="animate-fade-in sm:w-1/2">
           <div class="flex flex-col gap-2 mb-2">
-            <h1 class="text-xl font-extrabold">
-              TTC (Time to Crack) in Minutes
-            </h1>
+            <h1 class="text-xl font-extrabold">TTC (Time To Crack)</h1>
             <p class="text-md text-gray-300">
-              Decryption time for popular messaging services using Shor's
-              Algorithm on a viable quantum computer.
+              Decryption time for popular messaging services in minutes:
             </p>
           </div>
           <GraphHorizontal
@@ -165,9 +190,15 @@ NIST has endorsed lattice-based schemes like CRYSTALS-Kyber and CRYSTALS-Dilithi
               },
             ]"
           />
+          <p class="text-sm text-neutral-400">(Using Shor's Algorithm)</p>
         </UCard>
       </LayoutSection>
     </LayoutHero>
+    <USeparator />
+
+    <div class="w-screen">
+      <ContentCarousel :agencies="agencyList" />
+    </div>
     <USeparator />
 
     <div class="w-full h-auto">

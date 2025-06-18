@@ -9,7 +9,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="flex flex-col justify-center gap-2 animate-pulse-slow">
+  <div class="flex flex-col justify-center gap-2">
     <div
       class="hidden text-red-500 text-red-500 text-blue-500 text-green-500 text-yellow-500 text-purple-500 text-pink-500 text-orange-500 text-teal-500 text-indigo-500 text-emerald-500"
     />
