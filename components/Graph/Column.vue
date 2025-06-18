@@ -1,12 +1,7 @@
-<script setup>
+<script setup lang="ts">
 import { computed, toRefs } from "vue";
 
-const props = defineProps({
-  width: {
-    type: [String, Number],
-    required: true,
-  },
-});
+const props = defineProps<{ width: number }>();
 
 const { width } = toRefs(props);
 
@@ -20,10 +15,12 @@ const computedWidth = computed(() => {
 
 <template>
   <div
-    class="relative h-2 bg-gray-200 rounded-full overflow-hidden transition-all duration-500 ease-out"
+    class="relative h-2 bg-gray-200 rounded-full overflow-hidden transition-all duration-500 ease-in-out"
     :style="{ width: computedWidth }"
   >
-    <div class="absolute inset-0 w-full h-full flex items-center justify-center">
+    <div
+      class="absolute inset-0 w-full h-full flex items-center justify-center"
+    >
       <div class="w-full h-full">
         <slot />
       </div>

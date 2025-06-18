@@ -1,41 +1,73 @@
 <script setup lang="ts">
-import { useWindowSize } from "@vueuse/core"; // Optional, explained below
-const { width } = useWindowSize();
+const company = "Bay Area Secure";
 </script>
 <template>
   <div>
-    <P5Canvas class="w-full min-h-screen h-screen w-64 h-64 z-10">
-      <div
-        class="absolute w-full min-h-screen h-screen flex flex-col items-center justify-center gap-4"
-      >
-        <div class="flex gap-2 items-center">
-          <NuxtLink to="/">
-            <NuxtImg class="size-16" src="sfnet.png" />
-          </NuxtLink>
-          <h1
-            class="text-6xl bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-5xl font-extrabold text-transparent pb-2 my-2"
-          >
-            BayAreaSecure.ai
-          </h1>
-        </div>
-        <h2 class="text-xl font-extrabold">
-          Beyond Quantum: Secure Today, Safe Tomorrow
-        </h2>
-        <UButton
-          icon="i-lucide-rocket"
-          color="neutral"
-          variant="outline"
-          :ui="{
-            leadingIcon: 'text-primary cursor-hover',
-          }"
+    <nav class="sticky border-b border-gray-800">
+      <UContainer class="flex items-center justify-between py-4">
+        <!-- Logo -->
+        <NuxtLink
+          to="/"
+          class="flex items-center space-x-2 font-semibold text-lg"
         >
-          Join The Movement
-        </UButton>
-      </div>
-    </P5Canvas>
+          <NuxtImg class="size-16" src="sfnet.png" />
+          <span>{{ company }}</span>
+        </NuxtLink>
 
+        <div>
+          <UButton
+            label="Book A Demo"
+            color="secondary"
+            variant="soft"
+            icon="i-lucide-notebook-pen"
+            block
+            :ui="{ base: 'cursor-pointer' }"
+          />
+        </div>
+      </UContainer>
+    </nav>
     <main class="flex flex-col items-center">
       <slot />
     </main>
+    <LayoutFooter>
+      <template #logo>
+        <div class="flex items-center gap-2">
+          <NuxtImg class="size-16" src="sfnet.png" />
+
+          <NuxtLink to="/" class="text-neutral font-bold text-lg">{{
+            company
+          }}</NuxtLink>
+        </div>
+      </template>
+
+      <template #links>
+
+      </template>
+
+      <template #socials>
+        <NuxtLink
+          to="https://www.linkedin.com/company/bayareasecure/"
+          target="_blank"
+          aria-label="Linkedin"
+        >
+          <Icon
+            name="mdi:linkedin"
+            size="36"
+            class="transition-all hover:text-primary"
+          />
+        </NuxtLink>
+        <NuxtLink to="https://github.com" target="_blank" aria-label="GitHub">
+          <Icon
+            name="mdi:github"
+            size="36"
+            class="transition-all hover:text-primary"
+          />
+        </NuxtLink>
+      </template>
+
+      <template #copyright>
+        © 2025 {{ company }}. All rights reserved.
+      </template>
+    </LayoutFooter>
   </div>
 </template>

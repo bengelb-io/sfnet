@@ -1,0 +1,89 @@
+@keyframes pulse-slow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:root {
+  --glow-color: #f87171;
+  --glow-color-deep: #b91c1c; /* darker version of the glow */
+}
+
+/* Glow text color variants for Tailwind default palette */
+.glow-text-red {
+  --glow-color: #f87171;
+  --glow-color-deep: #b91c1c;
+}
+.glow-text-blue {
+  --glow-color: #60a5fa;
+  --glow-color-deep: #1d4ed8;
+}
+.glow-text-green {
+  --glow-color: #4ade80;
+  --glow-color-deep: #15803d;
+}
+.glow-text-yellow {
+  --glow-color: #fde047;
+  --glow-color-deep: #ca8a04;
+}
+.glow-text-purple {
+  --glow-color: #c084fc;
+  --glow-color-deep: #7e22ce;
+}
+.glow-text-pink {
+  --glow-color: #f472b6;
+  --glow-color-deep: #be185d;
+}
+.glow-text-orange {
+  --glow-color: #fb923c;
+  --glow-color-deep: #c2410c;
+}
+.glow-text-teal {
+  --glow-color: #2dd4bf;
+  --glow-color-deep: #0f766e;
+}
+.glow-text-indigo {
+  --glow-color: #818cf8;
+  --glow-color-deep: #4f46e5;
+}
+.glow-text-emerald {
+  --glow-color: #34d399;
+  --glow-color-deep: #065f46;
+}
+
+
+@keyframes glow-text {
+  0%,
+  100% {
+    text-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--glow-color-deep), 0 0 30px var(--glow-color);
+  }
+}
+
+.animate-glow-text {
+  animation: glow-text 2s ease-in-out infinite;
+  color: white;
+}

@@ -2,14 +2,27 @@
 import type p5 from "p5";
 const container = ref();
 
+const speed = ref(3);
+
+// const linearIncrement = (target: number, delay: number, ref: Ref<number>) => {
+//   if (target - ref.value < 0) {
+//     throw Error("Infinite recursion");
+//   }
+//   if (ref.value === target) {
+//     return;
+//   }
+//   setTimeout(() => {
+//     ref.value = ref.value + 1;
+//     linearIncrement(target, delay, ref);
+//   }, delay);
+// };
+
 const useHyperSpace = (containerRef: Ref<HTMLDivElement>) => {
-  console.log(containerRef);
   const hyperSpace = (p: p5) => {
     const numStars = 500;
     let stars: Star[] = [];
 
     function setup() {
-      console.log();
       const canvas = p.createCanvas(
         containerRef.value.clientWidth,
         containerRef.value.clientHeight
@@ -26,9 +39,9 @@ const useHyperSpace = (containerRef: Ref<HTMLDivElement>) => {
     }
 
     function draw() {
-      p.background(0, 50);
+      p.background(15, 23, 42, 75);
 
-      const acc = p.map(2, 0, 100, 0.005, 0.2);
+      const acc = p.map(speed.value, 0, p.width, 0.005, 0.2);
 
       stars = stars.filter((star) => {
         star.draw();
@@ -46,10 +59,11 @@ const useHyperSpace = (containerRef: Ref<HTMLDivElement>) => {
       prevPos: p5.Vector;
       vel: p5.Vector;
       ang: number;
+
       constructor(x: number, y: number) {
         this.pos = p.createVector(x, y);
-        this.prevPos = p.createVector(x, y);
 
+        this.prevPos = p.createVector(x, y);
         this.vel = p.createVector(0, 0);
 
         this.ang = p.atan2(y - p.height / 2, x - p.width / 2);
@@ -91,13 +105,12 @@ onMounted(async () => {
     const sketch = useHyperSpace(container);
     const p5 = await import("p5");
     const renderer = new p5.default(sketch);
-
     return () => renderer.remove();
   }
 });
 </script>
 <template>
-  <div id="hi" ref="container">
+  <div id="container" ref="container">
     <slot />
   </div>
 </template>

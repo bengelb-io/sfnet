@@ -2,16 +2,14 @@
 @import "@nuxt/ui";
 
 /**
-
-JPMorganPrimary #0e3442 
-JPMorganLight #52d8e6
-JPMorganNeutral #21292e
-JPMorganDark #000000
+  JPMorganPrimary #0e3442 
+  JPMorganLight #52d8e6
+  JPMorganNeutral #21292e
+  JPMorganDark #000000
 **/
 
 @theme static {
-  --font-sans: 'Public Sans', sans-serif;
+  --font-sans: "Public Sans", sans-serif;
 
   --breakpoint-3xl: 1920px;
-
 }
