@@ -104,23 +104,69 @@ NIST has endorsed lattice-based schemes like CRYSTALS-Kyber and CRYSTALS-Dilithi
         </div>
       </P5Canvas>
       <USeparator />
-      <GraphHorizontal
-        :max="100"
-        :data="[
-          {
-            value: 10,
-          },
-          {
-            value: 20,
-          },
-          {
-            value: 30,
-          },
-          {
-            value: 75,
-          },
-        ]"
-      />
+      <LayoutSection class="flex gap-4">
+        <UCard
+          class="bg-slate-900 border border-slate-700 shadow-xl p-6 rounded-2xl animate-fade-in basis-1/2"
+        >
+          <div class="space-y-4">
+            <h2 class="text-2xl font-bold text-white">
+              🧮 Estimating Quantum Time to Crack
+            </h2>
+            <p class="text-slate-300">
+              As quantum computing inches closer to practicality, it's worth
+              asking: how long would it take an advanced quantum computer to
+              break encryption used by today's most popular messaging apps? From
+              Signal Protocol to Telegram's MTProto, each service relies on
+              cryptographic algorithms like AES, ECC, and RSA — all of which
+              face serious vulnerabilities in the face of Shor’s and Grover’s
+              algorithms.
+            </p>
+
+          </div>
+        </UCard>
+
+        <UCard variant="subtle" class="animate-fade-in sm:w-1/2">
+          <div class="flex flex-col gap-2 mb-2">
+            <h1 class="text-xl font-extrabold">
+              TTC (Time to Crack) in Minutes
+            </h1>
+            <p class="text-md text-gray-300">
+              Decryption time for popular messaging services using Shor's
+              Algorithm on a viable quantum computer.
+            </p>
+          </div>
+          <GraphHorizontal
+            :max="140"
+            :data="[
+              {
+                label: 'WhatsApp (Curve25519)',
+                value: 60,
+                iconName: 'i-simple-icons:whatsapp',
+              },
+              {
+                label: 'Signal (Curve25519)',
+                value: 60,
+                iconName: 'i-logos-signal',
+              },
+              {
+                label: 'Slack (RSA/ECC)',
+                value: 75,
+                iconName: 'i-logos-slack-icon',
+              },
+              {
+                label: 'iMessage (ECC/RSA)',
+                value: 90,
+                iconName: 'i-simple-icons:apple',
+              },
+              {
+                label: 'Telegram (RSA-2048)',
+                value: 120,
+                iconName: 'i-logos-telegram',
+              },
+            ]"
+          />
+        </UCard>
+      </LayoutSection>
     </LayoutHero>
     <USeparator />
 

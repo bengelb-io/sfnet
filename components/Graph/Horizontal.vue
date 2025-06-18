@@ -22,19 +22,28 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="graphContainerRef" class="flex flex-col gap-4 max-w-96">
+  <div ref="graphContainerRef" class="flex flex-col gap-4">
     <div
-      v-for="({ width, iconName }, i) in dataWidth"
+      v-for="({ width, iconName, value, label }, i) in dataWidth"
       :key="i"
-      class="flex items-center"
+      class="flex items-center mt-6"
     >
-      <GraphColumn :width="width" class="delay-250">
-        <!-- <div class="flex justify-center align-center"> -->
-        <div class="bg-secondary p-2 w-full" />
-        <!-- </div> -->
-      </GraphColumn>
+      <div class="flex flex-col text-grey-200">
+        <div class="absolute sm:-mt-6 -mt-12 sm:max-w-full max-w-24">
+          <p class="text-gray-400">{{ label }}</p>
+        </div>
+        <GraphColumn :width="width" class="delay-250">
+          <div class="bg-secondary p-2 w-full" />
+        </GraphColumn>
+      </div>
+
       <div class="-ml-2 z-0 inline-block rounded-full ring-2 ring-secondary">
         <UAvatar :icon="iconName" size="md" class="z-0" />
+      </div>
+      <div class="ml-2">
+        <p>
+          {{ value }}
+        </p>
       </div>
     </div>
   </div>
